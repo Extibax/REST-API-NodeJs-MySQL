@@ -3,7 +3,7 @@ This is a REST API with NodeJs as Back-End and MySQL as Data Base Management Sys
 ## Description
 This is a REST API with NodeJs as Back-End and MySQL as Data Base Management System
 
-## Languages, Tehcnologies & Libraries
+### Languages, Tehcnologies & Libraries Used
 * JavaScript
 * Babel
 * NodeJs
