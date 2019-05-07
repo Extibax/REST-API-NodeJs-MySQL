@@ -22,18 +22,27 @@ users.insertUser = async (new_user) => {
     }
 }
 
-users.updateUser = async (update_user) => {
+users.updateUser = async (update_user, user_id) => {
     if (connection) {
         try {
-
             const query = `
-                UPDATE node_restapi_mysql_users SET 
-                username = ${connection.escape()}
+                UPDATE node_restapi_mysql_users SET ? 
+                WHERE id = ${user_id}
             `;
 
-            return await connection.query(query);
+            return await connection.query(query, update_user);
         } catch (error) {
-            
+            console.log(error);
+        }
+    }
+}
+
+users.deleteUser = async (user_id) => {
+    if (connection) {
+        try {
+            return await connection.query('DELETE FROM node_restapi_mysql_users WHERE id = ?', user_id);
+        } catch (error) {
+            console.log(error);
         }
     }
 }
